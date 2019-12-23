@@ -25,7 +25,7 @@ Copypaste ```IOSNativeAlert``` in ```Plugins``` folder
 ```
 
 ![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/AlertOk.jpg "Alert") </br>
-Alert alert
+Simple alert
 
 ![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/CustomButtons.jpg "Custom buttons") </br>
 Alert with custom buttons
