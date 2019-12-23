@@ -12,23 +12,45 @@ NSString *ToNSString(char* string) {
     return [NSString stringWithUTF8String:string];
 }
 
-/// Alert function
-void _IOSShowAlertMsg (char* title, char* message) {
-    UIAlertController * alert = [UIAlertController alertControllerWithTitle : ToNSString(title)
-                                                                    message : ToNSString(message)
-                                                             preferredStyle : UIAlertControllerStyleAlert];
+// Unity button delegate delegate
+typedef void (*MonoPAllertButtonDelegate)(const char* buttonId);
+static MonoPAllertButtonDelegate _onButtonClick = NULL;
 
-    UIAlertAction * ok = [UIAlertAction
-                          actionWithTitle:@"OK"
-                          style:UIAlertActionStyleDefault
-                          handler:^(UIAlertAction * action)
-                          { }];
+// Register unity message handler
+FOUNDATION_EXPORT void IOSRegisterMessageHandler(MonoPAllertButtonDelegate onButtonClick)
+{
+    _onButtonClick = onButtonClick;
+}
 
-    [alert addAction:ok];
+// Send message to unity
+void SendMessageToUnity(const char* buttonId) {
+    NSLog(@"Clicked %s", buttonId);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if(_onButtonClick != NULL) {
+            _onButtonClick(buttonId);
+        }
+    });
+}
+
+// Alert function
+void _IOSShowAlertMsg (char* title, char* message, char* buttons[], int buttonsLength) {
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle : ToNSString(title) message : ToNSString(message) preferredStyle : UIAlertControllerStyleAlert];
+
+    // Add buttons
+    if (buttons && buttonsLength > 0) {
+        for (int i = 0; i < buttonsLength; i++) {
+            NSString* buttonTitle = ToNSString(buttons[i]);
+            UIAlertAction * button = [UIAlertAction actionWithTitle:buttonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                NSString* buttonId = [NSString stringWithFormat:@"%@%d", buttonTitle, i];
+                SendMessageToUnity((char*)[buttonId UTF8String]);
+            }];
+            [alert addAction:button];
+        }
+    }
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [UnityGetGLViewController() presentViewController:alert animated:YES completion:nil];
     });
-
 }
 
 /// Show something like android toast
