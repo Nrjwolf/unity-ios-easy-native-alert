@@ -8,15 +8,27 @@ Copypaste ```IOSNativeAlert``` in ```Plugins``` folder
 
 ``` c#
 #if UNITY_IOS && !UNITY_EDITOR
-  // Show alert
+  // Show simple alert with 'Ok' button
   IOSNativeAlert.ShowAlertMessage("No internet connection", "Sorry, but you can't to rate without internet access :(");
+
+  // Alert with custom buttons
+  IOSNativeAlert.ShowAlertMessage(
+                  "My title?", 
+                  "My message?",
+                  new IOSNativeAlert.AllertButton("Cancel", () => IOSNativeAlert.ShowToast("Cancel")), // show 'toast' as callback 
+                  new IOSNativeAlert.AllertButton("Ok", () => IOSNativeAlert.ShowToast("Ok"))
+                  );
+
   // Show toast for 1 sec
   IOSNativeAlert.ShowToast("No internet connection", true);
 #endif
 ```
 
 ![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/AlertOk.jpg "Alert") </br>
-Alert
+Alert alert
+
+![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/CustomButtons.jpg "Custom buttons") </br>
+Alert with custom buttons
 
 ![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/Toast.jpg "Toast") </br>
 Toast (disappears after .5 or 1 sec)  
