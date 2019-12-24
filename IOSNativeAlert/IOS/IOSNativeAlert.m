@@ -13,11 +13,11 @@ NSString *ToNSString(char* string) {
 }
 
 // Unity button delegate delegate
-typedef void (*MonoPAllertButtonDelegate)(const char* buttonId);
-static MonoPAllertButtonDelegate _onButtonClick = NULL;
+typedef void (*MonoPAlertButtonDelegate)(const char* buttonId);
+static MonoPAlertButtonDelegate _onButtonClick = NULL;
 
 // Register unity message handler
-FOUNDATION_EXPORT void IOSRegisterMessageHandler(MonoPAllertButtonDelegate onButtonClick)
+FOUNDATION_EXPORT void IOSRegisterMessageHandler(MonoPAlertButtonDelegate onButtonClick)
 {
     _onButtonClick = onButtonClick;
 }
