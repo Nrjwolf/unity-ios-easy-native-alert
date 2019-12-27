@@ -15,8 +15,8 @@ Copypaste ```IOSNativeAlert``` in ```Plugins``` folder
   IOSNativeAlert.ShowAlertMessage(
                   "My title?", 
                   "My message?",
-                  new IOSNativeAlert.AllertButton("Cancel", () => IOSNativeAlert.ShowToast("Cancel")), // show 'toast' as callback 
-                  new IOSNativeAlert.AllertButton("Ok", () => IOSNativeAlert.ShowToast("Ok"))
+                  new IOSNativeAlert.AlertButton("Cancel", () => IOSNativeAlert.ShowToast("Cancel")), // show 'toast' as callback 
+                  new IOSNativeAlert.AlertButton("Ok", () => IOSNativeAlert.ShowToast("Ok"))
                   );
 
   // Show toast for 1 sec
