@@ -25,11 +25,9 @@ FOUNDATION_EXPORT void IOSRegisterMessageHandler(MonoPAlertButtonDelegate onButt
 // Send message to unity
 void SendMessageToUnity(const char* buttonId) {
     NSLog(@"Clicked %s", buttonId);
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if(_onButtonClick != NULL) {
-            _onButtonClick(buttonId);
-        }
-    });
+    if(_onButtonClick != NULL) {
+        _onButtonClick(buttonId);
+    }
 }
 
 // Alert function
