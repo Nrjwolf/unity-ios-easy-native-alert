@@ -2,35 +2,64 @@
 
 ### Install
 
-Copypaste ```IOSNativeAlert``` in ```Plugins``` folder
+Add this as a package to your project by adding the below as an entry to the dependencies in the `/Package/manifest.json` file:
+
+```json
+"nrjwolf.games.iosnativealerts": "git+https://github.com/Nrjwolf/unity-ios-easy-native-alert" 
+```
+For more information on adding git repositories as a package see the [Git support on Package Manager](https://docs.unity3d.com/Manual/upm-git.html) in the Unity Documentation.
 
 ---
 
+Example
 ``` c#
-#if UNITY_IOS && !UNITY_EDITOR
-  // Show simple alert with 'Ok' button
-  IOSNativeAlert.ShowAlertMessage("No internet connection", "Sorry, but you can't to rate without internet access :(");
+using UnityEngine;
+using Nrjwolf.Tools;
 
-  // Alert with custom buttons
-  IOSNativeAlert.ShowAlertMessage(
-                  "My title?", 
-                  "My message?",
-                  new IOSNativeAlert.AlertButton("Cancel", () => IOSNativeAlert.ShowToast("Cancel")), // show 'toast' as callback 
-                  new IOSNativeAlert.AlertButton("Ok", () => IOSNativeAlert.ShowToast("Ok"))
-                  );
-
-  // Show toast for 1 sec
-  IOSNativeAlert.ShowToast("No internet connection", true);
+public class IOSNativeAlertsExample : MonoBehaviour
+{
+    void OnGUI()
+    {
+#if UNITY_IOS 
+        GUI.matrix = Matrix4x4.Scale(new Vector3(3.5f, 3.5f, 3.5f));
+        if (GUILayout.Button("Simple Allert"))
+        {
+            IOSNativeAlert.ShowAlertMessage("Simple alert", "Press ok, if you're ok");
+        }
+        if (GUILayout.Button("Cancel/Ok"))
+        {
+            IOSNativeAlert.ShowAlertMessage(
+                "Check out my github",
+                "You can find another great plugins for unity on my github account",
+                new IOSNativeAlert.AlertButton("Cancel", null, ButtonStyle.Cancel), 
+                new IOSNativeAlert.AlertButton("Github", () => Application.OpenURL("https://github.com/Nrjwolf"))
+                );
+        }
+        if (GUILayout.Button("Sheet"))
+        {
+            IOSNativeAlert.ShowSheetMessage(
+                "Do you want to reset your phone?",
+                "Just kidding, I can't do it :)",
+                new IOSNativeAlert.AlertButton("Cancel", null, ButtonStyle.Cancel),
+                new IOSNativeAlexrt.AlertButton("Let's do it", () => IOSNativeAlert.ShowToast("Reseting..."), ButtonStyle.Destructive)
+                );
+        }
+#endif
+    }
+}
 #endif
 ```
 
-![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/AlertOk.jpg "Alert") </br>
+![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/SimpleAlert.png "Simple Alert") </br>
 Simple alert
 
-![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/CustomButtons.jpg "Custom buttons") </br>
+![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/AlertButtons.png "Custom buttons") </br>
 Alert with custom buttons
 
-![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/Toast.jpg "Toast") </br>
+![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/AlertSheets.png "Custom buttons style sheet") </br>
+Alert style "sheet"
+
+![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/Toast.png "Toast") </br>
 Toast (disappears after .5 or 1 sec)  
 
 >I'm on [reddit](https://www.reddit.com/r/Nrjwolf/)  
