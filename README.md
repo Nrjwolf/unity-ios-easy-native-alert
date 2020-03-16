@@ -1,6 +1,6 @@
 # IOS Easy Alert
 
-### Instalation
+### Install
 
 Copypaste ```IOSNativeAlert``` in ```Plugins``` folder
 

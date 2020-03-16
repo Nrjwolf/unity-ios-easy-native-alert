@@ -3,5 +3,15 @@
     "displayName": "IOSNativeAlerts",
     "version": "1.0.0",
     "unity": "2018.3",
-    "description": "Ease native IOS alerts"
+    "description": "Ease native IOS alerts",
+    "keywords": [
+        "ios",
+        "native",
+        "alerts"
+    ],
+    "author": {
+        "name": "Nrjwolf",
+        "email": "alexander@nrjwolf.games",
+        "url": "https://nrjwolf.games"
+    }
 }

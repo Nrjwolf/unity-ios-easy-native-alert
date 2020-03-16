@@ -31,14 +31,15 @@ void SendMessageToUnity(const char* buttonId) {
 }
 
 // Alert function
-void _IOSShowAlertMsg (char* title, char* message, char* buttons[], int buttonsLength) {
-    UIAlertController * alert = [UIAlertController alertControllerWithTitle : ToNSString(title) message : ToNSString(message) preferredStyle : UIAlertControllerStyleAlert];
+void _IOSShowAlertMsg (int alertStyle, char* title, char* message, char* buttons[], int buttonsStyle[], int buttonsLength) {
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle : ToNSString(title) message : ToNSString(message) preferredStyle : (UIAlertControllerStyle)alertStyle];
 
     // Add buttons
     if (buttons && buttonsLength > 0) {
         for (int i = 0; i < buttonsLength; i++) {
-            NSString* buttonTitle = ToNSString(buttons[i]);
-            UIAlertAction * button = [UIAlertAction actionWithTitle:buttonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            NSString *buttonTitle = ToNSString(buttons[i]);
+            UIAlertActionStyle style = (UIAlertActionStyle)buttonsStyle[i];
+            UIAlertAction * button = [UIAlertAction actionWithTitle: buttonTitle style:style handler:^(UIAlertAction * action) {
                 NSString* buttonId = [NSString stringWithFormat:@"%@%d", buttonTitle, i];
                 SendMessageToUnity((char*)[buttonId UTF8String]);
             }];
@@ -54,16 +55,13 @@ void _IOSShowAlertMsg (char* title, char* message, char* buttons[], int buttonsL
 /// Show something like android toast
 void _IOSShowToast (char* message, BOOL isLongDuration) {
     NSString *messageString = ToNSString(message);
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:messageString message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIWindow *alertWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    alertWindow.rootViewController = [[UIViewController alloc] init];
-    alertWindow.windowLevel = UIWindowLevelAlert + 1;
-    [alertWindow makeKeyAndVisible];
-    [alertWindow.rootViewController presentViewController:alert animated:YES completion:nil];
-    
-    float showDuration = isLongDuration ? 1 : .5;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(showDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [alertWindow.rootViewController dismissViewControllerAnimated:YES completion:nil];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil
+                                                                message:messageString
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+
+    [UnityGetGLViewController() presentViewController:alert animated:YES completion:nil];
+    int duration = isLongDuration ? 1 : .5;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [alert dismissViewControllerAnimated:YES completion:nil];
     });
 }
