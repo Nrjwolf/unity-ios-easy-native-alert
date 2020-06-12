@@ -5,7 +5,7 @@
 Add this as a package to your project by adding the below as an entry to the dependencies in the `/Package/manifest.json` file:
 
 ```json
-"nrjwolf.games.iosnativealerts": "git+https://github.com/Nrjwolf/unity-ios-easy-native-alert" 
+"nrjwolf.games.iosnativealerts": "git+https://github.com/Nrjwolf/unity-ios-easy-native-alert"
 ```
 For more information on adding git repositories as a package see the [Git support on Package Manager](https://docs.unity3d.com/Manual/upm-git.html) in the Unity Documentation.
 
@@ -20,7 +20,7 @@ public class IOSNativeAlertsExample : MonoBehaviour
 {
     void OnGUI()
     {
-#if UNITY_IOS 
+#if UNITY_IOS
         GUI.matrix = Matrix4x4.Scale(new Vector3(3.5f, 3.5f, 3.5f));
         if (GUILayout.Button("Simple Allert"))
         {
@@ -31,7 +31,7 @@ public class IOSNativeAlertsExample : MonoBehaviour
             IOSNativeAlert.ShowAlertMessage(
                 "Check out my github",
                 "You can find another great plugins for unity on my github account",
-                new IOSNativeAlert.AlertButton("Cancel", null, ButtonStyle.Cancel), 
+                new IOSNativeAlert.AlertButton("Cancel", null, ButtonStyle.Cancel),
                 new IOSNativeAlert.AlertButton("Github", () => Application.OpenURL("https://github.com/Nrjwolf"))
                 );
         }
@@ -59,7 +59,7 @@ Alert with custom buttons
 Alert style "sheet"
 
 ![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/Toast.png "Toast") </br>
-Toast (disappears after .5 or 1 sec)  
+Toast (disappears after .5 or 1 sec)
 
->I'm on [reddit](https://www.reddit.com/r/Nrjwolf/)  
+>I'm on [reddit](https://www.reddit.com/r/Nrjwolf/)
 >Мой [телеграм канал](https://t.me/nrjwolf_live)
