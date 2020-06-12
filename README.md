@@ -41,13 +41,12 @@ public class IOSNativeAlertsExample : MonoBehaviour
                 "Do you want to reset your phone?",
                 "Just kidding, I can't do it :)",
                 new IOSNativeAlert.AlertButton("Cancel", null, ButtonStyle.Cancel),
-                new IOSNativeAlexrt.AlertButton("Let's do it", () => IOSNativeAlert.ShowToast("Reseting..."), ButtonStyle.Destructive)
+                new IOSNativeAlert.AlertButton("Let's do it", () => IOSNativeAlert.ShowToast("Reseting..."), ButtonStyle.Destructive)
                 );
         }
 #endif
     }
 }
-#endif
 ```
 
 ![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/SimpleAlert.png "Simple Alert") </br>
