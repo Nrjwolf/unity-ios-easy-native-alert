@@ -1,3 +1,13 @@
-﻿{
-	"name": "nrjwolf.tools.iosnativealerts"
+{
+    "name": "nrjwolf.tools.iosnativealerts",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
