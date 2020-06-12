@@ -2,7 +2,7 @@
 
 ### Install
 
-Add this as a package to your project by adding the below as an entry to the dependencies in the `/Package/manifest.json` file:
+Add this as a package to your project by adding the below as an entry to the dependencies in the `/Packages/manifest.json` file:
 
 ```json
 "nrjwolf.games.iosnativealerts": "git+https://github.com/Nrjwolf/unity-ios-easy-native-alert"
