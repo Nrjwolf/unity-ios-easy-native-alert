@@ -1,7 +1,9 @@
 ﻿#if UNITY_IOS
 using System;
-using System.Linq;
 using System.Runtime.InteropServices;
+#if !UNITY_EDITOR
+using System.Linq;
+#endif
 using UnityEngine;
 #endif
 

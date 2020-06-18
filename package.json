@@ -13,5 +13,11 @@
         "name": "Nrjwolf",
         "email": "alexander@nrjwolf.games",
         "url": "https://nrjwolf.games"
-    }
+    },
+    "samples": [
+        {
+            "displayName": "IOSNativeAlerts Example",
+            "path": "Samples~/IOSNativeAlertsExample"
+        }
+    ]
 }

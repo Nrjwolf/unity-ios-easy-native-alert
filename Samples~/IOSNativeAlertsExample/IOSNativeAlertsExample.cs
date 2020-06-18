@@ -1,19 +1,4 @@
-# IOS Easy Alert
-
-### Install
-
-Add this as a package to your project by adding the below as an entry to the dependencies in the `/Packages/manifest.json` file:
-
-```json
-"nrjwolf.games.iosnativealerts": "git+https://github.com/Nrjwolf/unity-ios-easy-native-alert"
-```
-For more information on adding git repositories as a package see the [Git support on Package Manager](https://docs.unity3d.com/Manual/upm-git.html) in the Unity Documentation.
-
----
-
-Example
-``` c#
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Nrjwolf.Tools
 {
@@ -49,19 +34,3 @@ namespace Nrjwolf.Tools
         }
     }
 }
-```
-
-![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/SimpleAlert.png "Simple Alert") </br>
-Simple alert
-
-![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/AlertButtons.png "Custom buttons") </br>
-Alert with custom buttons
-
-![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/AlertSheets.png "Custom buttons style sheet") </br>
-Alert style "sheet"
-
-![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/Toast.png "Toast") </br>
-Toast (disappears after .5 or 1 sec)
-
->I'm on [reddit](https://www.reddit.com/r/Nrjwolf/)
->Мой [телеграм канал](https://t.me/nrjwolf_live)

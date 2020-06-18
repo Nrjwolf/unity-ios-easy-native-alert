@@ -46,7 +46,7 @@ void _IOSShowAlertMsg (int alertStyle, char* title, char* message, char* buttons
             [alert addAction:button];
         }
     }
-    
+
     dispatch_async(dispatch_get_main_queue(), ^{
         [UnityGetGLViewController() presentViewController:alert animated:YES completion:nil];
     });
