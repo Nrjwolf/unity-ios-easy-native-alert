@@ -63,5 +63,8 @@ Alert style "sheet"
 ![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/Toast.png "Toast") </br>
 Toast (disappears after .5 or 1 sec)
 
+For *Android* check another my plugin https://github.com/Nrjwolf/unity-android-easy-native-alerts <br>
+Do not forgot to ⭐️ it.
+
 >I'm on [reddit](https://www.reddit.com/r/Nrjwolf/)
 >Мой [телеграм канал](https://t.me/nrjwolf_live)
