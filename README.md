@@ -51,17 +51,7 @@ namespace Nrjwolf.Tools
 }
 ```
 
-![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/SimpleAlert.png "Simple Alert") </br>
-Simple alert
-
-![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/AlertButtons.png "Custom buttons") </br>
-Alert with custom buttons
-
-![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/AlertSheets.png "Custom buttons style sheet") </br>
-Alert style "sheet"
-
-![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/images/Toast.png "Toast") </br>
-Toast (disappears after .5 or 1 sec)
+![](https://github.com/Nrjwolf/unity-ios-easy-native-alert/blob/master/.github/sceenshot_ios_alerts.png "") </br>
 
 For *Android* check another my plugin https://github.com/Nrjwolf/unity-android-easy-native-alerts <br>
 Do not forgot to ⭐️ it.
