@@ -57,4 +57,4 @@ For *Android* check another my plugin https://github.com/Nrjwolf/unity-android-e
 Do not forgot to ⭐️ it.
 
 >I'm on [reddit](https://www.reddit.com/r/Nrjwolf/)
->Мой [телеграм канал](https://t.me/nrjwolf_live)
+>Мой [телеграм канал](https://t.me/nrjwolf_games)
